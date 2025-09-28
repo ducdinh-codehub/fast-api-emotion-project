@@ -1,2 +1,3 @@
 # fastapi-fun
-Setting up BE system for Smart Agricultural App.
+
+Setting up BE system for Emotion Tracking project.

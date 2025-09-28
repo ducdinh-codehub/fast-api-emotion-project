@@ -1,18 +1,6 @@
 ''' SHARING METHODS TO ALL THE PROJECT '''
 import base64
 import time
-def processInput(data):
-    '''
-        Input:
-            str -> base64 -> image
-        - Enhance quality contrast, brightness, sharpness, etc.
-        output:
-            processed image
-    '''
-    image_data = base64.b64decode(data)
-    with open('./api/plants/tmpConvertImage/image.jpg', 'wb') as f:
-        f.write(image_data)
-    return {"message": "Process Input"}
 
 def crc32_custom(data):
     crc = 0xFFFFFFFF

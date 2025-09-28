@@ -34,7 +34,10 @@ class Redis:
         self.redis_db = config.Settings().redis_db
         self.redis_username = config.Settings().redis_username
         self.redis_password = config.Settings().redis_password
-        self.redis_manager = StrictRedis(host=self.redis_host, port=self.redis_port, db=self.redis_db, username=config.Settings().redis_username, password=config.Settings().redis_password)
+        self.redis_manager = StrictRedis(host=self.redis_host, port=self.redis_port, db=self.redis_db)
+        #self.redis_manager = StrictRedis(host=self.redis_host, port=self.redis_port, db=self.redis_db, username=config.Settings().redis_username, password=config.Settings().redis_password) # for production
+        
+        
         self.redis_cache = self.redis_manager.get_cache()
         
     def getItemRedisCache(self, key):

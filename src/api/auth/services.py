@@ -88,6 +88,8 @@ async def createAccount(data : CreateAccountRequest) -> CreateUserResponse:
     
     hashpassword = hashlib.md5(data.password.encode()).hexdigest()
 
+    print("data.email"+data.email)
+
     '''Advanced using Redis to improve performance'''
     hash_email = await hash_email_value(data.email)
 
@@ -95,6 +97,8 @@ async def createAccount(data : CreateAccountRequest) -> CreateUserResponse:
     redis = Redis()
 
     is_activate = True if redis.getBitItemRedisCache("acc", hash_email) == 1 else False
+
+    print("is_activate", is_activate)
     
     if is_activate == False:
         redis.setBitItemRedisCache("acc", hash_email, 1)
